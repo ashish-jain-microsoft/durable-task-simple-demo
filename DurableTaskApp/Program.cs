@@ -8,7 +8,7 @@ namespace DurableTaskApp
         static async Task Main()
         {
             // Setup
-            var storageAccountConnectionString = "";
+            var storageAccountConnectionString = "<Enter your SA connection string>";
             var taskHubName = "DurableTaskDemoHub"; // Namespace for all my orchestrations while persisting to Azure Storage
 
             var settings = new AzureStorageOrchestrationServiceSettings
