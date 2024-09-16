@@ -41,14 +41,14 @@ namespace DurableTaskApp
             Console.WriteLine("Enter a number for the orchestrations:");
             string? input = Console.ReadLine();
 
-            // Square orchestration
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("Starting Square orchestration...");
-
             if (!int.TryParse(input, out int validNumber))
             {
                 throw new Exception("Invalid input. Please enter a valid number.");
             }
+
+            // Square orchestration
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("Starting Square orchestration...");
 
             var squareOrchestrationInstance = await client.CreateOrchestrationInstanceAsync(typeof(SquareOrchestration), validNumber);
             var squareOrchestrationInstanceStatus = await client.WaitForOrchestrationAsync(squareOrchestrationInstance, TimeSpan.FromSeconds(10));
